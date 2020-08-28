@@ -89,7 +89,8 @@ function App() {
         </div>
         
         <div className="app__stats">
-          <InfoBox 
+          <InfoBox
+            active={casesType === 'cases'}
             title='New Cases' 
             cases={
               countryInfo.todayCases < 1000 ? `+${countryInfo.todayCases}` : printStat(countryInfo.todayCases)
@@ -97,16 +98,18 @@ function App() {
             total={numeral(countryInfo.cases).format('0.0a')} 
             onClick={e => setCasesType('cases')}
           />
-          <InfoBox 
+          <InfoBox
+            active={casesType === 'recovered'}
+            isGreen
             title='Recovered' 
             cases={
               countryInfo.todayRecovered < 1000 ? `+${countryInfo.todayRecovered}` : printStat(countryInfo.todayRecovered)
             } 
             total={numeral(countryInfo.recovered).format('0.0a')}
             onClick={e => setCasesType('recovered')}
-
           />
-          <InfoBox 
+          <InfoBox
+            active={casesType === 'deaths'}
             title='Deaths' 
             cases={
               countryInfo.todayDeaths < 1000 ? `+${countryInfo.todayDeaths}` : printStat(countryInfo.todayDeaths)
@@ -115,7 +118,6 @@ function App() {
             onClick={e => setCasesType('deaths')}
           />
         </div>
-
         <Map
           casesType={casesType}
           countries={mapCountries}
@@ -123,7 +125,6 @@ function App() {
           zoom={mapZoom}
         />
       </div>
-      
       <Card className='app__right'>
         <CardContent>
           <h3>

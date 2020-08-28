@@ -4,6 +4,17 @@
     cursor: pointer;
 }
 
+.infoBox--selected {
+    border-top: solid 8px #3f3e3e ;
+    box-shadow: 6px 6px 2px 1px rgba(153, 152, 155, 0.2) !important;
+
+}
+
+.infoBox--green {
+    border-top: greenyellow solid 8px;
+    box-shadow: 6px 6px 2px 1px rgba(153, 152, 155, 0.2) !important;
+}
+
 .infoBox:not(:last-child) {
     margin-right: 15px;
 }
@@ -18,6 +29,10 @@
     font-weight: 600;
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
+}
+
+.infoBox__cases--green {
+    color: rgb(129, 211, 7);
 }
   
 .infoBox__total {
